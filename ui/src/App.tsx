@@ -48,7 +48,7 @@ function App() {
   }, [isDragging]);
 
   return (
-    <div className="w-screen h-screen pointer-events-none relative overflow-hidden">
+    <div className="w-screen h-screen relative overflow-hidden bg-[#0f0f14]">
       {/* 主悬浮窗口 */}
       <motion.div
         className="absolute pointer-events-auto bg-game-bg border border-game-border rounded-lg shadow-glow backdrop-blur-md overflow-hidden flex"

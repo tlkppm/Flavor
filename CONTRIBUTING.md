@@ -1,51 +1,67 @@
-# Contributing to Flavor | 贡献指南
+# Contributing to Flavor
 
-[English](#english) | [中文](#中文)
+Thank you for your interest in contributing to Flavor. This document provides guidelines for contributing to the project.
 
 ---
 
-## English
+**[English](#guidelines)** | **[中文](#贡献指南)**
 
-Thank you for your interest in contributing to Flavor! This document provides guidelines and information about contributing.
+---
+
+## Guidelines
 
 ### Code of Conduct
 
-This project adheres to our [Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
+All contributors are expected to adhere to professional standards of conduct. Be respectful, constructive, and inclusive in all interactions.
 
-### How to Contribute
+### Reporting Issues
 
-#### Reporting Bugs
+Before submitting an issue:
 
-Before creating bug reports, please check existing issues to avoid duplicates. When creating a bug report, include:
+1. Search existing issues to avoid duplicates
+2. Use the issue template if available
+3. Provide clear reproduction steps
+4. Include environment details (OS version, Visual Studio version, Node.js version)
 
-- **Clear title** describing the issue
-- **Steps to reproduce** the behavior
-- **Expected behavior** vs **actual behavior**
-- **Environment details** (OS version, Visual Studio version, Node.js version)
-- **Screenshots or logs** if applicable
+### Pull Requests
 
-#### Suggesting Features
+1. Fork the repository and create a feature branch from `main`
+2. Follow the coding standards described below
+3. Write clear commit messages
+4. Test your changes thoroughly
+5. Update documentation if necessary
+6. Submit a pull request with a clear description
 
-Feature suggestions are welcome! Please include:
+### Coding Standards
 
-- **Clear description** of the feature
-- **Use case** explaining why this feature would be useful
-- **Possible implementation** approach (optional)
+#### C++ Code
 
-#### Pull Requests
+- Use C++20 standard features
+- Follow Microsoft C++ coding conventions
+- Use meaningful names for variables and functions
+- Document public APIs with comments
 
-1. **Fork** the repository
-2. **Create a branch** from `main` for your feature (`git checkout -b feature/amazing-feature`)
-3. **Make your changes** following the coding standards below
-4. **Test your changes** thoroughly
-5. **Commit** with clear, descriptive messages
-6. **Push** to your fork
-7. **Open a Pull Request** with a clear description
+#### TypeScript/React Code
+
+- Use TypeScript for type safety
+- Follow React functional component patterns
+- Use TailwindCSS for styling
+- Keep components focused and reusable
+
+#### Commit Messages
+
+Use the conventional commits format:
+
+```
+type(scope): description
+```
+
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 
 ### Development Setup
 
 ```bash
-# Clone your fork
+# Clone repository
 git clone https://github.com/YOUR_USERNAME/Flavor.git
 cd Flavor
 
@@ -53,55 +69,12 @@ cd Flavor
 cd ui
 npm install
 
-# Build UI for development
+# Development mode
 npm run dev
 
-# Or build for production
+# Production build
 npm run build
 ```
-
-### Coding Standards
-
-#### C++ Code
-
-- Use C++20 features where appropriate
-- Follow Microsoft's C++ coding conventions
-- Use meaningful variable and function names
-- Add comments for complex logic
-- Keep functions focused and small
-
-#### TypeScript/React Code
-
-- Use TypeScript for type safety
-- Follow React best practices and hooks patterns
-- Use functional components
-- Keep components small and reusable
-- Use TailwindCSS for styling
-
-#### Commit Messages
-
-Follow conventional commits format:
-
-```
-type(scope): description
-
-[optional body]
-
-[optional footer]
-```
-
-Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
-
-Examples:
-- `feat(ui): add dark mode toggle`
-- `fix(core): resolve memory leak in message handler`
-- `docs: update API reference`
-
-### Testing
-
-- Test C++ changes by building and running the DLL
-- Test UI changes in development mode with `npm run dev`
-- Ensure no regressions in existing functionality
 
 ### License
 
@@ -109,48 +82,62 @@ By contributing, you agree that your contributions will be licensed under the MI
 
 ---
 
-## 中文
+## 贡献指南
 
-感谢您有兴趣为 Flavor 做出贡献！本文档提供贡献的指南和信息。
+感谢您有兴趣为 Flavor 做出贡献。本文档提供项目贡献指南。
 
 ### 行为准则
 
-本项目遵守我们的[行为准则](CODE_OF_CONDUCT.md)。参与即表示您同意遵守此准则。
+所有贡献者都应遵守专业的行为标准。在所有互动中保持尊重、建设性和包容性。
 
-### 如何贡献
+### 报告问题
 
-#### 报告 Bug
+提交问题之前：
 
-在创建 Bug 报告之前，请检查现有 issue 以避免重复。创建 Bug 报告时，请包括：
+1. 搜索现有问题以避免重复
+2. 如有问题模板请使用
+3. 提供清晰的重现步骤
+4. 包含环境详情（操作系统版本、Visual Studio 版本、Node.js 版本）
 
-- **清晰的标题** 描述问题
-- **重现步骤**
-- **预期行为** 与 **实际行为**
-- **环境详情**（操作系统版本、Visual Studio 版本、Node.js 版本）
-- **截图或日志**（如适用）
+### Pull Request
 
-#### 功能建议
+1. Fork 仓库并从 `main` 创建功能分支
+2. 遵循下述编码标准
+3. 编写清晰的提交消息
+4. 彻底测试您的更改
+5. 如有必要更新文档
+6. 提交带有清晰描述的 Pull Request
 
-欢迎功能建议！请包括：
+### 编码标准
 
-- **清晰的描述**
-- **使用场景** 解释为什么这个功能有用
-- **可能的实现** 方法（可选）
+#### C++ 代码
 
-#### Pull Request
+- 使用 C++20 标准特性
+- 遵循 Microsoft C++ 编码约定
+- 使用有意义的变量和函数名
+- 为公共 API 添加注释文档
 
-1. **Fork** 仓库
-2. 从 `main` **创建分支**（`git checkout -b feature/amazing-feature`）
-3. 遵循以下编码标准 **进行更改**
-4. **彻底测试** 您的更改
-5. 使用清晰的描述性消息 **提交**
-6. **推送** 到您的 fork
-7. **打开 Pull Request** 并提供清晰的描述
+#### TypeScript/React 代码
+
+- 使用 TypeScript 确保类型安全
+- 遵循 React 函数组件模式
+- 使用 TailwindCSS 进行样式设计
+- 保持组件专注且可复用
+
+#### 提交消息
+
+使用约定式提交格式：
+
+```
+类型(范围): 描述
+```
+
+类型：`feat`、`fix`、`docs`、`style`、`refactor`、`test`、`chore`
 
 ### 开发环境设置
 
 ```bash
-# 克隆您的 fork
+# 克隆仓库
 git clone https://github.com/YOUR_USERNAME/Flavor.git
 cd Flavor
 
@@ -158,55 +145,12 @@ cd Flavor
 cd ui
 npm install
 
-# 开发模式构建 UI
+# 开发模式
 npm run dev
 
-# 或生产模式构建
+# 生产构建
 npm run build
 ```
-
-### 编码标准
-
-#### C++ 代码
-
-- 适当使用 C++20 特性
-- 遵循 Microsoft C++ 编码约定
-- 使用有意义的变量和函数名
-- 为复杂逻辑添加注释
-- 保持函数专注且简小
-
-#### TypeScript/React 代码
-
-- 使用 TypeScript 确保类型安全
-- 遵循 React 最佳实践和 hooks 模式
-- 使用函数组件
-- 保持组件小巧且可复用
-- 使用 TailwindCSS 进行样式设计
-
-#### 提交消息
-
-遵循约定式提交格式：
-
-```
-类型(范围): 描述
-
-[可选正文]
-
-[可选页脚]
-```
-
-类型：`feat`、`fix`、`docs`、`style`、`refactor`、`test`、`chore`
-
-示例：
-- `feat(ui): 添加深色模式切换`
-- `fix(core): 修复消息处理器中的内存泄漏`
-- `docs: 更新 API 参考`
-
-### 测试
-
-- 通过构建和运行 DLL 测试 C++ 更改
-- 使用 `npm run dev` 在开发模式下测试 UI 更改
-- 确保现有功能没有回归
 
 ### 许可证
 
