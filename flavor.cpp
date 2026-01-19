@@ -126,6 +126,25 @@ namespace Flavor
                                 GetClientRect(g_Hwnd, &bounds);
                                 g_WebViewController->put_Bounds(bounds);
 
+                                // 设置虚拟主机映射解决CORS问题
+                                ICoreWebView2_3* webview3 = nullptr;
+                                g_WebView->QueryInterface(IID_PPV_ARGS(&webview3));
+                                if (webview3)
+                                {
+                                    std::wstring uiFolder = GetUIPath();
+                                    size_t pos = uiFolder.rfind(L"\\index.html");
+                                    if (pos != std::wstring::npos)
+                                    {
+                                        uiFolder = uiFolder.substr(0, pos);
+                                    }
+                                    webview3->SetVirtualHostNameToFolderMapping(
+                                        L"flavor.local",
+                                        uiFolder.c_str(),
+                                        COREWEBVIEW2_HOST_RESOURCE_ACCESS_KIND_ALLOW
+                                    );
+                                    webview3->Release();
+                                }
+
                                 g_WebView->add_WebMessageReceived(
                                     Callback<ICoreWebView2WebMessageReceivedEventHandler>(
                                         [](ICoreWebView2* webview, ICoreWebView2WebMessageReceivedEventArgs* args) -> HRESULT
@@ -177,12 +196,8 @@ namespace Flavor
                                     ).Get(), nullptr
                                 );
 
-                                std::wstring uiPath = L"file:///" + GetUIPath();
-                                for (auto& c : uiPath)
-                                {
-                                    if (c == L'\\') c = L'/';
-                                }
-                                g_WebView->Navigate(uiPath.c_str());
+                                // 使用虚拟主机地址而非file://协议
+                                g_WebView->Navigate(L"https://flavor.local/index.html");
 
                                 return S_OK;
                             }
